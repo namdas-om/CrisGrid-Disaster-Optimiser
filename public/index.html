@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CrisisGrid — Dynamic Disaster Response Optimizer with Anti-Gravity Kinetic Depth UI. Real-time emergency graph routing and resource optimization.">
+  <title>CRISISGRID — Anti-Gravity Disaster Optimizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <!-- ═══════════════════ LANDING PAGE ═══════════════════ -->
+  <div id="page-landing" class="page active">
+    <div class="landing-bg">
+      <canvas id="heroCanvas"></canvas>
+      <div class="landing-overlay"></div>
+    </div>
+    <nav class="landing-nav">
+      <div class="landing-brand">
+        <div class="brand-icon"><i data-lucide="shield-alert"></i></div>
+        <span class="brand-text">CRISISGRID</span>
+      </div>
+      <div class="landing-nav-links">
+        <a href="#" data-page="landing" class="nav-link active">Home</a>
+        <a href="#" data-page="command" class="nav-link">Command Center</a>
+        <a href="#" data-page="algorithms" class="nav-link">Algorithms</a>
+        <a href="#" data-page="about" class="nav-link">About</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div class="hero-badge kinetic-float"><i data-lucide="sparkles"></i> REAL-TIME DISASTER INTELLIGENCE</div>
+      <h1 class="hero-title">CRISIS<span class="hero-accent">GRID</span></h1>
+      <p class="hero-subtitle">Dynamic Disaster Response Optimizer</p>
+      <p class="hero-desc">Turning complex disaster scenarios into intelligent, adaptive response decisions using graphs, shortest-path algorithms, priority queues, hashing, and kinetic 2D simulation.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary btn-lg" data-page="command"><i data-lucide="radio"></i> Launch Command Center</button>
+        <button class="btn btn-outline btn-lg" data-page="algorithms"><i data-lucide="cpu"></i> Explore Algorithms</button>
+      </div>
+
+      <div class="hero-stats kinetic-float-delayed tilt-card">
+        <div class="hero-stat">
+          <div class="stat-indicator operational"></div>
+          <div class="stat-info"><span class="stat-label">SYSTEM STATUS</span><span class="stat-value">Operational</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" id="heroIncidents">12</span>
+          <div class="stat-info"><span class="stat-label">ACTIVE</span><span class="stat-value">Incidents</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" id="heroZones">4</span>
+          <div class="stat-info"><span class="stat-label">AFFECTED</span><span class="stat-value">Zones</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" id="heroShelters">8</span>
+          <div class="stat-info"><span class="stat-label">AVAILABLE</span><span class="stat-value">Shelters</span></div>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num" id="heroUnits">6</span>
+          <div class="stat-info"><span class="stat-label">RESCUE</span><span class="stat-value">Units</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-features">
+      <div class="feature-card tilt-card">
+        <div class="feature-icon"><i data-lucide="route"></i></div>
+        <h3>Smart Routing</h3>
+        <p>Dijkstra-powered multi-objective pathfinding with real-time hazard avoidance</p>
+      </div>
+      <div class="feature-card tilt-card">
+        <div class="feature-icon"><i data-lucide="activity"></i></div>
+        <h3>Live Simulation</h3>
+        <p>Dynamic disaster scenarios — floods, fires, earthquakes — with graph mutation</p>
+      </div>
+      <div class="feature-card tilt-card">
+        <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+        <h3>Priority Triage</h3>
+        <p>Max-heap priority queue ranks emergencies by severity, victims, and proximity</p>
+      </div>
+      <div class="feature-card tilt-card">
+        <div class="feature-icon"><i data-lucide="git-branch"></i></div>
+        <h3>Graph Analysis</h3>
+        <p>BFS/DFS detects isolated zones, critical bridges, and connected components</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ COMMAND CENTER (ANTI-GRAVITY UI) ═══════════════════ -->
+  <div id="page-command" class="page">
+
+    <!-- CLEAN PINNED NAVBAR -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-icon"><i data-lucide="shield-alert"></i></div>
+        <span class="brand-title">CrisisGrid</span>
+        <span class="live-pill"><span class="live-dot"></span> Live</span>
+      </div>
+
+      <nav class="header-nav">
+        <a href="#" class="nav-tab active" data-page="command" title="Overview"><i data-lucide="layout-dashboard"></i> <span>Overview</span></a>
+        <a href="#" class="nav-tab" data-page="simulation" title="Simulation"><i data-lucide="flame"></i> <span>Simulation</span></a>
+        <a href="#" class="nav-tab" data-page="routes" title="Routes"><i data-lucide="route"></i> <span>Routes</span></a>
+        <a href="#" class="nav-tab" data-page="incidents" title="Incidents"><i data-lucide="alert-triangle"></i> <span>Incidents</span></a>
+        <a href="#" class="nav-tab" data-page="resources" title="Resources"><i data-lucide="truck"></i> <span>Resources</span></a>
+        <a href="#" class="nav-tab" data-page="algorithms" title="Algorithms"><i data-lucide="cpu"></i> <span>Algorithms</span></a>
+        <a href="#" class="nav-tab" data-page="analytics" title="Analytics"><i data-lucide="bar-chart-3"></i> <span>Analytics</span></a>
+        <a href="#" class="nav-tab" data-page="about" title="About"><i data-lucide="info"></i> <span>About</span></a>
+      </nav>
+
+      <div class="header-controls">
+        <div class="scenario-selector">
+          <select id="scenarioSelect" class="header-select">
+            <option value="COASTAL_FLOOD">🌊 Coastal Flood</option>
+            <option value="URBAN_FIRE">🔥 Wildfire</option>
+            <option value="EARTHQUAKE">🌋 Earthquake</option>
+          </select>
+        </div>
+        <button class="btn btn-outline btn-sm" id="btnSimTickHeader" title="Advance simulation 1 tick"><i data-lucide="skip-forward"></i> <span>Tick</span></button>
+        <button class="btn btn-outline btn-sm" id="btnAutoSim" title="Toggle automatic simulation"><i data-lucide="play"></i> <span id="autoSimText">Auto Sim</span></button>
+        <button class="btn btn-primary btn-sm" id="btnAddIncidentHeader" title="Report Emergency Incident"><i data-lucide="plus-circle"></i> <span>Report SOS</span></button>
+        <button class="btn btn-outline btn-sm" id="btnResetSimHeader" title="Reset simulation environment"><i data-lucide="rotate-ccw"></i> <span>Reset</span></button>
+        <a href="#" class="nav-tab exit-btn" data-page="landing" title="Exit to Home"><i data-lucide="log-out"></i></a>
+      </div>
+    </header>
+
+    <!-- MAIN APP LAYOUT -->
+    <div class="app-layout">
+      <main class="main-content">
+        <div class="view-container">
+
+          <!-- VIEW: Command Center / Overview -->
+          <section id="view-command" class="view active">
+            <div class="command-grid">
+              <!-- Left Column: Priority Triage Queue (340px) -->
+              <div class="panel triage-panel tilt-card">
+                <div class="panel-header">
+                  <h3><i data-lucide="alert-circle"></i> Priority Triage Queue</h3>
+                  <span class="badge warning" id="triageCount">0</span>
+                </div>
+                <div class="triage-queue-wrap" id="triageList"></div>
+              </div>
+
+              <!-- Center Column: Disaster Map (1fr) -->
+              <div class="panel map-panel tilt-card">
+                <div class="panel-header">
+                  <h3><i data-lucide="map"></i> Interactive Disaster Map</h3>
+                  <div class="map-toolbar">
+                    <button class="btn btn-outline btn-xs" id="btnSimTick" title="Advance simulation 1 tick"><i data-lucide="skip-forward"></i> Sim Tick</button>
+                    <button class="btn btn-outline btn-xs" id="btnRandomEvent" title="Trigger random event"><i data-lucide="zap"></i> Random Event</button>
+                    <button class="btn btn-outline btn-xs" id="btnResetSim" title="Reset simulation"><i data-lucide="rotate-ccw"></i> Reset</button>
+                    <div class="toolbar-sep"></div>
+                    <button class="tool-btn" id="btnZoomIn" title="Zoom In"><i data-lucide="zoom-in"></i></button>
+                    <button class="tool-btn" id="btnZoomOut" title="Zoom Out"><i data-lucide="zoom-out"></i></button>
+                    <button class="tool-btn" id="btnResetView" title="Reset View"><i data-lucide="maximize-2"></i></button>
+                  </div>
+                </div>
+                <div class="map-legend">
+                  <span class="legend-item"><span class="dot safe"></span>Safe</span>
+                  <span class="legend-item"><span class="dot warning"></span>At Risk</span>
+                  <span class="legend-item"><span class="dot danger"></span>Critical</span>
+                  <span class="legend-item"><span class="dot hospital"></span>Hospital</span>
+                  <span class="legend-item"><span class="dot shelter"></span>Shelter</span>
+                  <span class="legend-item"><span class="dot blocked"></span>Blocked</span>
+                  <span class="legend-item"><span class="dot route"></span>Active Route</span>
+                </div>
+                <div class="canvas-wrap">
+                  <div class="map-hint-bar">
+                    <span><i data-lucide="mouse-pointer"></i> Click road to toggle closure</span>
+                    <span class="hint-sep">•</span>
+                    <span><i data-lucide="crosshair"></i> Click node to inspect &amp; dispatch</span>
+                    <span class="hint-sep">•</span>
+                    <span><i data-lucide="move"></i> Drag to pan, scroll to zoom</span>
+                  </div>
+                  <canvas id="graphCanvas"></canvas>
+                  <div class="graph-tooltip" id="graphTooltip"></div>
+
+                  <!-- Interactive Node Inspector Drawer -->
+                  <div class="node-inspector-card hidden" id="nodeInspectorCard">
+                    <div class="inspector-header">
+                      <div class="inspector-title-group">
+                        <span class="inspector-badge" id="inspNodeType">HUB</span>
+                        <h4 id="inspNodeName">Node Inspector</h4>
+                      </div>
+                      <button class="inspector-close-btn" id="btnInspClose" title="Close">✕</button>
+                    </div>
+                    <div class="inspector-content">
+                      <div class="inspector-metrics" id="inspMetrics"></div>
+                      <div class="inspector-corridors">
+                        <span class="inspector-subhead">Connected Corridors:</span>
+                        <div class="corridor-tags" id="inspCorridors"></div>
+                      </div>
+                      <div class="inspector-actions">
+                        <button class="btn btn-warning btn-xs" id="btnInspSOS"><i data-lucide="alert-triangle"></i> Report SOS</button>
+                        <button class="btn btn-outline btn-xs" id="btnInspRouteFrom"><i data-lucide="navigation"></i> Route From</button>
+                        <button class="btn btn-outline btn-xs" id="btnInspRouteTo"><i data-lucide="map-pin"></i> Evacuate To</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Intel & Event Log (320px) -->
+              <div class="intel-panel">
+                <!-- Shelters & Hospitals -->
+                <div class="panel compact flex-panel tilt-card">
+                  <div class="panel-header"><h3><i data-lucide="home"></i> Shelters & Hospitals</h3></div>
+                  <div class="scroll-list" id="shelterList"></div>
+                </div>
+                <!-- Event Watchdog Log -->
+                <div class="panel compact flex-panel tilt-card">
+                  <div class="panel-header"><h3><i data-lucide="scroll-text"></i> Live Event Log</h3></div>
+                  <div class="scroll-list" id="eventLogList"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: Simulation -->
+          <section id="view-simulation" class="view">
+            <div class="sim-grid">
+              <div class="panel sim-controls-panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="flame"></i> Disaster Simulation Engine</h3></div>
+                <p class="panel-desc">Simulate disaster progression. Select a scenario, trigger events, and observe real-time graph mutations.</p>
+                <div class="sim-scenario-cards">
+                  <div class="scenario-card" data-scenario="COASTAL_FLOOD">
+                    <i data-lucide="droplets"></i>
+                    <h4>Flood</h4>
+                    <p>Roads submerge, evacuation routes shift.</p>
+                  </div>
+                  <div class="scenario-card" data-scenario="URBAN_FIRE">
+                    <i data-lucide="flame"></i>
+                    <h4>Wildfire</h4>
+                    <p>Fire spreads, hazard zones expand.</p>
+                  </div>
+                  <div class="scenario-card" data-scenario="EARTHQUAKE">
+                    <i data-lucide="mountain"></i>
+                    <h4>Earthquake</h4>
+                    <p>Buildings collapse, roads crack.</p>
+                  </div>
+                </div>
+                <div class="sim-buttons">
+                  <button class="btn btn-primary" id="btnSimStart"><i data-lucide="play"></i> Start Sim</button>
+                  <button class="btn btn-outline" id="btnSimPause"><i data-lucide="pause"></i> Pause</button>
+                  <button class="btn btn-outline" id="btnSimReset"><i data-lucide="rotate-ccw"></i> Reset</button>
+                  <button class="btn btn-warning" id="btnSimNextEvent"><i data-lucide="zap"></i> Trigger Event</button>
+                </div>
+                <div class="sim-controls-grid">
+                  <div class="form-group">
+                    <label>Block Road Segment</label>
+                    <div class="input-row">
+                      <select id="simBlockFrom" class="form-select"></select>
+                      <span class="input-sep">→</span>
+                      <select id="simBlockTo" class="form-select"></select>
+                    </div>
+                    <button class="btn btn-danger btn-sm btn-full" id="btnSimBlockRoad"><i data-lucide="x-circle"></i> Toggle Closure</button>
+                  </div>
+                  <div class="form-group">
+                    <label>Report SOS Incident</label>
+                    <select id="simIncidentNode" class="form-select"></select>
+                    <input id="simIncidentTitle" class="form-input" placeholder="Incident title" value="Emergency Rescue">
+                    <div class="input-row">
+                      <input id="simIncidentSev" class="form-input" type="number" min="1" max="5" value="4">
+                      <input id="simIncidentVic" class="form-input" type="number" min="1" max="200" value="25">
+                    </div>
+                    <button class="btn btn-warning btn-sm btn-full" id="btnSimAddIncident"><i data-lucide="plus"></i> Add Incident</button>
+                  </div>
+                </div>
+              </div>
+              <div class="panel sim-map-panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="map"></i> Live Disaster Simulation Map</h3></div>
+                <div class="canvas-wrap"><canvas id="simCanvas"></canvas></div>
+              </div>
+              <div class="panel sim-events-panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="bell-ring"></i> Simulation Event Log</h3></div>
+                <div class="scroll-list" id="simEventLog"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: Route Optimizer -->
+          <section id="view-routes" class="view">
+            <div class="route-grid">
+              <div class="panel route-config-panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="route"></i> Route Optimizer</h3></div>
+                <p class="panel-desc">Calculate optimal evacuation corridors using Dijkstra's algorithm with multi-objective cost weighting.</p>
+                <div class="form-group">
+                  <label>Source Node</label>
+                  <select id="routeSource" class="form-select"></select>
+                </div>
+                <div class="swap-row" style="display:flex; justify-content:center; margin:-6px 0 10px 0;">
+                  <button class="btn btn-outline btn-xs" id="btnSwapRoute" type="button" title="Swap Source and Destination Nodes"><i data-lucide="arrow-up-down"></i> Swap Source ⇄ Destination</button>
+                </div>
+                <div class="form-group">
+                  <label>Destination Node</label>
+                  <select id="routeDest" class="form-select"></select>
+                </div>
+                <div class="form-group">
+                  <label>Optimization Profile</label>
+                  <div class="profile-tabs">
+                    <button class="profile-tab active" data-profile="fastest">Fastest</button>
+                    <button class="profile-tab" data-profile="safest">Safest</button>
+                    <button class="profile-tab" data-profile="balanced">Balanced</button>
+                  </div>
+                </div>
+                <div class="weight-sliders">
+                  <div class="slider-group">
+                    <label>α Travel Time <span class="slider-val" id="alphaVal">1.0</span></label>
+                    <input type="range" id="alphaSlider" min="0" max="2" step="0.1" value="1.0" class="slider">
+                  </div>
+                  <div class="slider-group">
+                    <label>β Hazard Risk <span class="slider-val" id="betaVal">0.5</span></label>
+                    <input type="range" id="betaSlider" min="0" max="2" step="0.1" value="0.5" class="slider">
+                  </div>
+                  <div class="slider-group">
+                    <label>γ Congestion <span class="slider-val" id="gammaVal">0.3</span></label>
+                    <input type="range" id="gammaSlider" min="0" max="2" step="0.1" value="0.3" class="slider">
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-full" id="btnCalcRoute"><i data-lucide="navigation"></i> Calculate Routes</button>
+                <div class="route-results" id="routeResults"></div>
+              </div>
+              <div class="panel route-map-panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="map-pin"></i> Route Visualization Map</h3></div>
+                <div class="canvas-wrap"><canvas id="routeCanvas"></canvas></div>
+              </div>
+              <div class="panel route-stepper-panel tilt-card">
+                <div class="panel-header">
+                  <h3><i data-lucide="footprints"></i> Dijkstra Stepper Debugger</h3>
+                  <div class="stepper-controls">
+                    <button class="tool-btn" id="btnStepPrev"><i data-lucide="skip-back"></i></button>
+                    <button class="tool-btn" id="btnStepPlay"><i data-lucide="play"></i></button>
+                    <button class="tool-btn" id="btnStepNext"><i data-lucide="skip-forward"></i></button>
+                    <span class="step-counter" id="stepCounter">STEP 0 / 0</span>
+                  </div>
+                </div>
+                <div class="stepper-log" id="stepperLog">Awaiting pathfinding execution...</div>
+                <div class="stepper-panels">
+                  <div class="stepper-col">
+                    <div class="col-label">Min-Heap State</div>
+                    <div class="badge-container" id="heapView"></div>
+                  </div>
+                  <div class="stepper-col">
+                    <div class="col-label">dist[] Table</div>
+                    <div class="badge-container" id="distView"></div>
+                  </div>
+                  <div class="stepper-col">
+                    <div class="col-label">Visited Set</div>
+                    <div class="badge-container" id="visitedView"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: Incidents -->
+          <section id="view-incidents" class="view">
+            <div class="incidents-layout">
+              <div class="panel tilt-card">
+                <div class="panel-header">
+                  <h3><i data-lucide="alert-triangle"></i> Incident Management Table</h3>
+                  <div class="header-actions">
+                    <input type="text" id="incidentSearchInput" placeholder="🔍 Filter incidents..." class="form-input" style="max-width:170px; padding:6px 12px; font-size:0.78rem;">
+                    <div class="filter-tabs" id="incidentFilters">
+                      <button class="filter-tab active" data-filter="all">All</button>
+                      <button class="filter-tab" data-filter="PENDING">Active</button>
+                      <button class="filter-tab" data-filter="DISPATCHED">Dispatched</button>
+                      <button class="filter-tab" data-filter="RESOLVED">Resolved</button>
+                    </div>
+                    <button class="btn btn-warning btn-sm" id="btnAddIncidentPage"><i data-lucide="plus"></i> Report Incident</button>
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>ID</th><th>Type</th><th>Title</th><th>Location</th><th>Severity</th><th>Victims</th><th>Status</th><th>Assigned</th><th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="incidentTableBody"></tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="incidents-side">
+                <div class="panel tilt-card">
+                  <div class="panel-header"><h3><i data-lucide="layers"></i> Max-Heap Priority Queue</h3></div>
+                  <p class="panel-desc">Priority Score = (Severity × 20) + (Victims × 0.5) + (Risk × 10)</p>
+                  <div class="pq-visual" id="pqVisual"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: Resources -->
+          <section id="view-resources" class="view">
+            <div class="resources-grid">
+              <div class="panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="truck"></i> Rescue Fleet</h3></div>
+                <div class="resource-cards" id="vehicleCards"></div>
+              </div>
+              <div class="panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="building-2"></i> Hospitals</h3></div>
+                <div class="resource-cards" id="hospitalCards"></div>
+              </div>
+              <div class="panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="home"></i> Shelters</h3></div>
+                <div class="resource-cards" id="shelterCards"></div>
+              </div>
+              <div class="panel tilt-card">
+                <div class="panel-header"><h3><i data-lucide="package"></i> Supply Inventory</h3></div>
+                <div class="resource-cards" id="supplyCards"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: Algorithms -->
+          <section id="view-algorithms" class="view">
+            <div class="algo-layout">
+              <div class="algo-header">
+                <h2>Data Structures & Algorithm Architecture</h2>
+                <p>CrisisGrid utilizes computer science primitives for dynamic disaster response.</p>
+              </div>
+              <div class="algo-grid" id="algoGrid"></div>
+            </div>
+          </section>
+
+          <!-- VIEW: Analytics -->
+          <section id="view-analytics" class="view">
+            <div class="analytics-layout">
+              <div class="analytics-header">
+                <h2><i data-lucide="bar-chart-3"></i> Operations Analytics</h2>
+              </div>
+              <div class="analytics-cards" id="analyticsCards"></div>
+              <div class="analytics-charts">
+                <div class="panel tilt-card"><div class="panel-header"><h3>Network Capacity Ratio</h3></div><div class="chart-area" id="chartNetwork"></div></div>
+                <div class="panel tilt-card"><div class="panel-header"><h3>Resource Utilization</h3></div><div class="chart-area" id="chartResources"></div></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: About -->
+          <section id="view-about" class="view">
+            <div class="about-layout" id="aboutContent"></div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+
+  </div>
+
+  <!-- Incident Modal -->
+  <div class="modal-overlay" id="incidentModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3><i data-lucide="alert-triangle"></i> Report Emergency Incident</h3>
+        <button class="modal-close" id="modalClose"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group"><label>Incident Title</label><input id="modalTitle" class="form-input" value="Emergency Rescue Required"></div>
+        <div class="form-group"><label>Location Node</label><select id="modalNode" class="form-select"></select></div>
+        <div class="form-group"><label>Disaster Type</label>
+          <select id="modalType" class="form-select">
+            <option>FLOOD</option><option>FIRE</option><option>EARTHQUAKE</option><option>COLLAPSE</option><option>MEDICAL</option><option>GENERAL</option>
+          </select>
+        </div>
+        <div class="input-row">
+          <div class="form-group"><label>Severity (1-5)</label><input id="modalSev" class="form-input" type="number" min="1" max="5" value="4"></div>
+          <div class="form-group"><label>Victims</label><input id="modalVic" class="form-input" type="number" min="0" value="15"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="modalCancel">Cancel</button>
+        <button class="btn btn-primary" id="modalSubmit"><i data-lucide="send"></i> Submit Incident</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
